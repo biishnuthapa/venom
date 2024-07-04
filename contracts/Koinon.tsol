@@ -28,7 +28,7 @@ import "./libraries/TokenMsgFlag.tsol";
  * The transfer of tokens is carried out in P2P mode between the wallets of
  * the sender's and recipient's tokens.
 */
-contract TokenRoot is
+contract Koinon is
     TokenRootTransferableOwnershipBase,
     TokenRootBurnPausableBase,
     TokenRootBurnableByRootBase,

@@ -8,15 +8,15 @@ async function main() {
   // Address of token owner 
   const rootOwner = new Address("0:b9a0be6e8be7f81bc16ed7dc5640cd6acaf8dd70108eefaa2bcb06d38e1a65ca");
   // Name of the token
-  const name = "Test Koinon";
+  const name = "KOINON";
   // Symbol of the token
-  const symbol = "TKOIN";
+  const symbol = "KOIN";
   // How many token will be issued instantly after deploy
-  const initialSupply = 100000000;
+  const initialSupply = 125000000;
   // The number of decimals the token uses
-  const decimals = 18;
+  const decimals = 4;
   // If `true`, disables token minting
-  const disableMint = false;
+  const disableMint = true;
   // If `true`, disables token burning by root
   const disableBurnByRoot = false;
   // If `true`, pauses token burning
@@ -36,7 +36,7 @@ async function main() {
       This is the amount of EVERs that will be sent to the wallet.
   */
   const { contract: tokenRoot } = await locklift.factory.deployContract({
-    contract: "TokenRoot",
+    contract: "Koinon",
     publicKey: signer.publicKey,
     initParams: {
       deployer_: zeroAddress, // this field should be zero address if deploying with public key (see source code)
