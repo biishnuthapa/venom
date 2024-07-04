@@ -11,10 +11,15 @@ declare global {
 }
 
 const LOCAL_NETWORK_ENDPOINT = process.env.NETWORK_ENDPOINT || "http://localhost/graphql";
-
 const VENOM_TESTNET_ENDPOINT = "https://jrpc-testnet.venom.foundation/rpc";
 
-// Create your own link on https://dashboard.evercloud.dev/
+
+
+const VENOM_MAINNET_GIVER_PHRASE = 'bleak remove hobby boring small talk choice father curtain domain'
+const VENOM_MAINNET_GIVER_ADDRESS = '0:b9a0be6e8be7f81bc16ed7dc5640cd6acaf8dd70108eefaa2bcb06d38e1a65ca'
+const VENOM_MAINNET_PHRASE= 'bleak remove hobby boring small talk choice father curtain domain'
+
+
 
 const config: LockliftConfig = {
   compiler: {
@@ -90,7 +95,7 @@ const config: LockliftConfig = {
       },
       giver: {
         address: "0:b9a0be6e8be7f81bc16ed7dc5640cd6acaf8dd70108eefaa2bcb06d38e1a65ca",
-        phrase: "bleak remove hobby boring small concert outdoor talk choice father curtain domain",
+        phrase: "bleak remove hobby boring small talk choice father curtain domain",
         accountId: 0,
       },
       keys: {
@@ -99,22 +104,26 @@ const config: LockliftConfig = {
         // phrase: "action inject penalty envelope rabbit element slim tornado dinner pizza off blood",
         amount: 20,
       },
+    },main: {
+  connection: {
+    id: 1,
+    type: 'jrpc',
+    group: 'main',
+    data: {
+      endpoint: 'https://jrpc.venom.foundation/rpc',
     },
-    main: {
-      // Specify connection settings for https://github.com/broxus/everscale-standalone-client/
-      connection: "mainnetJrpc",
-      // This giver is default Wallet
-      giver: {
-        address: "0:b9a0be6e8be7f81bc16ed7dc5640cd6acaf8dd70108eefaa2bcb06d38e1a65ca",
-        key: "bleak remove hobby boring small concert outdoor talk choice father curtain domain",
-      },
-      keys: {
-        // Use everdev to generate your phrase
-        // !!! Never commit it in your repos !!!
-        phrase: "bleak remove hobby boring small concert outdoor talk choice father curtain domain",
-        amount: 20,
-      },
-    },
+  },
+  giver: {  
+    address: VENOM_MAINNET_GIVER_ADDRESS,
+    phrase: 'bleak remove hobby boring small  talk choice father curtain domain',
+    accountId: 0,
+
+  },
+  keys: {
+    phrase: VENOM_MAINNET_PHRASE,
+    amount: 100,
+  },
+}
   },
   mocha: {
     timeout: 2000000,

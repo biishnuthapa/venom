@@ -3,17 +3,16 @@ import BigNumber from "bignumber.js";
 
 async function main() {
   const signer = (await locklift.keystore.getSigner("0"))!;
-
-  // Address of initial token supply recipient 
+   // Address of initial token supply recipient 
   const initialSupplyTo = new Address("0:b9a0be6e8be7f81bc16ed7dc5640cd6acaf8dd70108eefaa2bcb06d38e1a65ca");
   // Address of token owner 
   const rootOwner = new Address("0:b9a0be6e8be7f81bc16ed7dc5640cd6acaf8dd70108eefaa2bcb06d38e1a65ca");
   // Name of the token
-  const name = "Koinon";
+  const name = "Test Koinon";
   // Symbol of the token
-  const symbol = "KOIN";
+  const symbol = "TKOIN";
   // How many token will be issued instantly after deploy
-  const initialSupply = 10;
+  const initialSupply = 100000000;
   // The number of decimals the token uses
   const decimals = 18;
   // If `true`, disables token minting
@@ -27,6 +26,7 @@ async function main() {
     Returns compilation artifacts based on the .tsol file name
       or name from value config.externalContracts[pathToLib].
   */
+
   const TokenWallet = locklift.factory.getContractArtifacts("TokenWallet");
 
   /* 
@@ -56,7 +56,7 @@ async function main() {
       burnPaused: pauseBurn,
       remainingGasTo: zeroAddress,
     },
-    value: toNano(5),
+    value: toNano(3),
   });
 
   console.log(`${name}: ${tokenRoot.address}`);
